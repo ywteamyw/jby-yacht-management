@@ -119,7 +119,7 @@ a{color:inherit;text-decoration:none}
   clip-path:inset(100% 0 0 0);transform:translateY(70px);transition:clip-path 1.2s var(--ease),transform 1.2s var(--ease)}
 .szoom{position:absolute;inset:0;overflow:hidden;transition:transform 1.5s var(--ease);will-change:transform}
 .scene-media:hover .szoom{transform:scale(1.045)}
-.scene-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);will-change:transform}
+.scene-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transform-origin:center top;will-change:transform}
 .scene.in .scene-media{clip-path:inset(0 0 0 0);transform:translateY(0)}
 .scene.in .scene-media img{animation:sceneKB 18s var(--ease) both}
 @keyframes sceneKB{from{transform:scale(1.06)}to{transform:scale(1.15)}}
@@ -253,7 +253,7 @@ footer{background:var(--paper);padding:40px 40px;color:var(--mute);font-size:14p
 <div class="scenes">
 
   <section class="scene">
-    <div class="scene-media"><span class="idx">01 / Marine &amp; Boatyard</span><img src="./assets/s1-marine-boatyard.jpg" alt="JBY marine and boatyard services" loading="lazy"/></div>
+    <div class="scene-media"><span class="idx">01 / Marine &amp; Boatyard</span><img src="./assets/s1-marine-boatyard.jpg" alt="JBY marine and boatyard services" style="object-position:center 45%" loading="lazy"/></div>
     <div class="scene-cap">
       <div class="kicker"><span class="n">01</span><span class="ln"></span></div>
       <h3>Marine &amp; Boatyard Services</h3>
@@ -263,7 +263,7 @@ footer{background:var(--paper);padding:40px 40px;color:var(--mute);font-size:14p
   </section>
 
   <section class="scene">
-    <div class="scene-media"><span class="idx">02 / Service &amp; Maintenance</span><img src="./assets/s2-service-maintenance.jpg" alt="JBY service and maintenance" loading="lazy"/></div>
+    <div class="scene-media"><span class="idx">02 / Service &amp; Maintenance</span><img src="./assets/s2-service-maintenance.jpg" alt="JBY service and maintenance" style="object-position:center 15%" loading="lazy"/></div>
     <div class="scene-cap">
       <div class="kicker"><span class="n">02</span><span class="ln"></span></div>
       <h3>Service &amp; Maintenance</h3>
@@ -273,7 +273,7 @@ footer{background:var(--paper);padding:40px 40px;color:var(--mute);font-size:14p
   </section>
 
   <section class="scene">
-    <div class="scene-media"><span class="idx">03 / Berthing</span><img src="./assets/s3-berthing.jpg" alt="JBY berthing and marina logistics" loading="lazy"/></div>
+    <div class="scene-media"><span class="idx">03 / Berthing</span><img src="./assets/s3-berthing.jpg" alt="JBY berthing and marina logistics" style="object-position:center 55%" loading="lazy"/></div>
     <div class="scene-cap">
       <div class="kicker"><span class="n">03</span><span class="ln"></span></div>
       <h3>Berthing</h3>
@@ -283,7 +283,7 @@ footer{background:var(--paper);padding:40px 40px;color:var(--mute);font-size:14p
   </section>
 
   <section class="scene">
-    <div class="scene-media"><span class="idx">04 / Crew Management</span><img src="./assets/s4-crew.jpg" alt="JBY crew management" loading="lazy"/></div>
+    <div class="scene-media"><span class="idx">04 / Crew Management</span><img src="./assets/s4-crew.jpg" alt="JBY crew management" style="object-position:center 26%" loading="lazy"/></div>
     <div class="scene-cap">
       <div class="kicker"><span class="n">04</span><span class="ln"></span></div>
       <h3>Crew Management</h3>
@@ -293,7 +293,7 @@ footer{background:var(--paper);padding:40px 40px;color:var(--mute);font-size:14p
   </section>
 
   <section class="scene">
-    <div class="scene-media"><span class="idx">05 / Delivery</span><img src="./assets/s5-delivery.jpg" alt="JBY yacht delivery" loading="lazy"/></div>
+    <div class="scene-media"><span class="idx">05 / Delivery</span><img src="./assets/s5-delivery.jpg" alt="Yacht underway on delivery" style="object-position:center 52%" loading="lazy"/></div>
     <div class="scene-cap">
       <div class="kicker"><span class="n">05</span><span class="ln"></span></div>
       <h3>Delivery</h3>
@@ -303,7 +303,7 @@ footer{background:var(--paper);padding:40px 40px;color:var(--mute);font-size:14p
   </section>
 
   <section class="scene">
-    <div class="scene-media"><span class="idx">06 / Warranty &amp; Upgrades</span><img src="./assets/s6-warranty.jpg" alt="JBY warranty and upgrades" loading="lazy"/></div>
+    <div class="scene-media"><span class="idx">06 / Warranty &amp; Upgrades</span><img src="./assets/s6-warranty.jpg" alt="JBY warranty and upgrades" style="object-position:center 12%" loading="lazy"/></div>
     <div class="scene-cap">
       <div class="kicker"><span class="n">06</span><span class="ln"></span></div>
       <h3>Warranty &amp; Upgrades</h3>
@@ -313,7 +313,7 @@ footer{background:var(--paper);padding:40px 40px;color:var(--mute);font-size:14p
   </section>
 
   <section class="scene">
-    <div class="scene-media"><span class="idx">07 / Survey</span><img src="./assets/s7-survey.jpg" alt="JBY marine survey coordination" loading="lazy"/></div>
+    <div class="scene-media"><span class="idx">07 / Survey</span><img src="./assets/s7-survey.jpg" alt="JBY marine survey coordination" style="object-position:center 18%" loading="lazy"/></div>
     <div class="scene-cap">
       <div class="kicker"><span class="n">07</span><span class="ln"></span></div>
       <h3>Survey</h3>
