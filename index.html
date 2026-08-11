@@ -200,11 +200,12 @@ a{color:inherit;text-decoration:none}
 
 /* ============================== FOOTER ============================== */
 footer{background:var(--paper);padding:40px 40px;color:var(--mute);font-size:14px;border-top:.5px solid var(--line)}
-.foot-grid{display:grid;grid-template-columns:312px 1fr 1fr 40px;gap:40px;align-items:flex-start;max-width:1440px;margin:0 auto}
+.foot-grid{display:grid;grid-template-columns:312px 1fr 1fr 40px;gap:40px;align-items:stretch;max-width:1440px;margin:0 auto}
+.foot-grid>div:first-child{display:flex;flex-direction:column}
 .foot-logo{width:80px;height:80px;border-radius:50%;overflow:hidden;margin-bottom:32px;background:#fff;display:flex;align-items:center;justify-content:center}
 .foot-logo img{width:100%;height:100%;object-fit:contain;filter:invert(1)}
 .foot-nav{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:14px;line-height:24px;text-transform:uppercase;color:#000;
-  display:flex;flex-direction:column;align-items:flex-start;gap:14px;max-width:320px}
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;max-width:320px;margin-top:auto}
 .foot-nav a{transition:.2s}.foot-nav a:hover{color:var(--navy)}.foot-nav .sep{color:var(--mute);opacity:.4}
 .foot-col{padding-top:112px}
 .foot-col h6{font-family:'Myriad Pro',sans-serif;font-weight:400;font-size:16px;line-height:24px;color:var(--mute);margin:0 0 10px}
@@ -341,7 +342,8 @@ footer{background:var(--paper);padding:40px 40px;color:var(--mute);font-size:14p
     <div>
       <div class="foot-logo"><img src="./assets/jby_logo.svg" alt="Jeff Brown Yachts"/></div>
       <nav class="foot-nav">
-        <a href="#">Home</a><a href="#">Portfolio</a><a href="#">Brands</a><a href="#">Services</a><a href="#">Experiences</a><a href="#">About JBY</a>
+        <a href="#">Home</a><span class="sep">/</span><a href="#">Portfolio</a><span class="sep">/</span><a href="#">Brands</a><span class="sep">/</span>
+        <a href="#">Services</a><span class="sep">/</span><a href="#">Experiences</a><span class="sep">/</span><a href="#">About JBY</a>
       </nav>
     </div>
     <div class="foot-col">
