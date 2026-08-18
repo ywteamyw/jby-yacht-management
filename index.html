@@ -237,11 +237,10 @@ footer{background:var(--paper);padding:40px 40px 80px;color:var(--mute);font-siz
 .tmon-head{text-align:center;margin:0 auto 40px}
 .tmon-head h2{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:28px;line-height:38px;letter-spacing:0;text-transform:uppercase;color:var(--ink);margin:0}
 .tmon-view{position:relative;overflow:hidden}
+.tmon-view::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line);z-index:2;pointer-events:none}
 .tmon-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
 .tmon-track::-webkit-scrollbar{display:none}
 .tmon-q{flex:0 0 50%;scroll-snap-align:start;padding:0 clamp(28px,3.5vw,60px);display:flex;flex-direction:column;gap:22px}
-/* divider belongs to the 2nd card of each pair, so it travels with the pair (no fixed line) */
-.tmon-q:nth-child(even){border-left:1px solid var(--line)}
 .tmon-q blockquote{margin:0;font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:19px;line-height:31px;color:var(--ink)}
 .tmon-q .who{display:flex;flex-direction:column;gap:3px;margin-top:auto}
 .tmon-q .who .nm{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
@@ -252,7 +251,7 @@ footer{background:var(--paper);padding:40px 40px 80px;color:var(--mute);font-siz
 .tmon-btn:disabled{opacity:.32;cursor:default}
 .tmon-btn:disabled:hover{border-color:rgba(0,0,0,0.14);color:var(--ink)}
 .tmon-btn svg{width:20px;height:20px;display:block}
-@media(max-width:760px){.tmon{padding:72px 0}.tmon-wrap{padding:0 24px}.tmon-q{flex-basis:100%;padding:0}.tmon-q:nth-child(even){border-left:0}}
+@media(max-width:760px){.tmon{padding:72px 0}.tmon-wrap{padding:0 24px}.tmon-q{flex-basis:100%;padding:0}.tmon-view::before{display:none}}
 </style>
 </head>
 <body id="top">
