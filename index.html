@@ -237,11 +237,11 @@ footer{background:var(--paper);padding:40px 40px 80px;color:var(--mute);font-siz
 .tmon-head{text-align:center;margin:0 auto 40px}
 .tmon-head h2{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:28px;line-height:38px;letter-spacing:0;text-transform:uppercase;color:var(--ink);margin:0}
 .tmon-view{position:relative;overflow:hidden}
-.tmon-view::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line);z-index:2;pointer-events:none}
-.tmon-track{display:grid;grid-template-columns:1fr 1fr}
-.tmon-q{display:none;min-width:0;box-sizing:border-box;padding:0 clamp(28px,3.5vw,60px);flex-direction:column;gap:22px}
-.tmon-q.on{display:flex;animation:tmonFade .45s ease}
-@keyframes tmonFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.tmon-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
+.tmon-track::-webkit-scrollbar{display:none}
+.tmon-q{flex:0 0 50%;min-width:0;margin:0;box-sizing:border-box;scroll-snap-align:start;padding:0 clamp(28px,3.5vw,60px);display:flex;flex-direction:column;gap:22px}
+/* divider travels with each pair (2nd card's border), matches SYY V2 */
+.tmon-q:nth-child(even){border-left:1px solid var(--line)}
 .tmon-q blockquote{margin:0;font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:19px;line-height:31px;color:var(--ink)}
 .tmon-q .who{display:flex;flex-direction:column;gap:3px;margin-top:auto}
 .tmon-q .who .nm{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
@@ -252,7 +252,7 @@ footer{background:var(--paper);padding:40px 40px 80px;color:var(--mute);font-siz
 .tmon-btn:disabled{opacity:.32;cursor:default}
 .tmon-btn:disabled:hover{border-color:rgba(0,0,0,0.14);color:var(--ink)}
 .tmon-btn svg{width:20px;height:20px;display:block}
-@media(max-width:760px){.tmon{padding:72px 0}.tmon-wrap{padding:0 24px}.tmon-track{grid-template-columns:1fr}.tmon-q{padding:0}.tmon-view::before{display:none}}
+@media(max-width:760px){.tmon{padding:72px 0}.tmon-wrap{padding:0 24px}.tmon-q{flex-basis:100%;padding:0}.tmon-q:nth-child(even){border-left:0}}
 </style>
 </head>
 <body id="top">
@@ -504,18 +504,29 @@ document.querySelectorAll('.scene-media').forEach(function(m){var img=m.querySel
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(upd);ticking=true;}},{passive:true});upd();
 })();
 
-/* Testimonials — infinite loop: show 2 at a time (1 on mobile), arrows wrap endlessly */
+/* Testimonials — editorial column slider with SEAMLESS INFINITE loop (from SYY V2) */
 (function(){
   var track=document.getElementById('tmonTrack');if(!track)return;
-  var cards=[].slice.call(track.children);if(!cards.length)return;
   var prev=document.querySelector('.tmon-btn.prev'),next=document.querySelector('.tmon-btn.next');
-  var i=0;
-  function per(){return window.innerWidth<=760?1:2;}
-  function render(){var p=per();cards.forEach(function(c){c.classList.remove('on');});for(var k=0;k<p;k++){cards[(i+k)%cards.length].classList.add('on');}}
-  if(next)next.addEventListener('click',function(){i=(i+per())%cards.length;render();});
-  if(prev)prev.addEventListener('click',function(){i=(i-per()+cards.length)%cards.length;render();});
-  window.addEventListener('resize',render);
-  render();
+  /* clone the whole set once; the two copies are pixel-identical, so jumping by one set width is invisible */
+  [].slice.call(track.children).forEach(function(c){track.appendChild(c.cloneNode(true));});
+  function step(){var c=track.querySelector('.tmon-q');return c?Math.round(c.getBoundingClientRect().width):320;}
+  function page(){return (window.innerWidth<=760?1:2)*step();}
+  function oneSet(){return track.scrollWidth/2;}
+  var settleTmr;
+  track.addEventListener('scroll',function(){
+    clearTimeout(settleTmr);
+    settleTmr=setTimeout(function(){
+      var one=oneSet();
+      if(track.scrollLeft>=one)track.scrollLeft-=one;
+      else if(track.scrollLeft<1)track.scrollLeft+=one;
+    },140);
+  },{passive:true});
+  if(prev)prev.addEventListener('click',function(){
+    if(track.scrollLeft<page()+1)track.scrollLeft+=oneSet();
+    track.scrollBy({left:-page(),behavior:'smooth'});
+  });
+  if(next)next.addEventListener('click',function(){track.scrollBy({left:page(),behavior:'smooth'});});
 })();
 </script>
 </body>
