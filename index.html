@@ -231,6 +231,27 @@ footer{background:var(--paper);padding:40px 40px 80px;color:var(--mute);font-siz
 .foot-locs{display:flex;flex-direction:column;gap:14px;margin:0}
 .foot-locs a{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:16px;line-height:20px;letter-spacing:0;text-transform:uppercase;color:var(--ink);text-decoration:none;transition:color .2s}
 .foot-locs a:hover{color:var(--navy)}
+/* ============================== TESTIMONIALS ============================== */
+.tmon{padding:96px 0;background:var(--section)}
+.tmon-wrap{max-width:1440px;margin:0 auto;padding:0 40px}
+.tmon-head{text-align:center;margin:0 auto 40px}
+.tmon-head h2{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:28px;line-height:38px;letter-spacing:0;text-transform:uppercase;color:var(--ink);margin:0}
+.tmon-view{position:relative;overflow:hidden}
+.tmon-view::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line);z-index:2;pointer-events:none}
+.tmon-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
+.tmon-track::-webkit-scrollbar{display:none}
+.tmon-q{flex:0 0 50%;scroll-snap-align:start;padding:0 clamp(28px,3.5vw,60px);display:flex;flex-direction:column;gap:22px}
+.tmon-q blockquote{margin:0;font-family:'Myriad Pro',sans-serif;font-weight:300;font-size:19px;line-height:31px;color:var(--ink)}
+.tmon-q .who{display:flex;flex-direction:column;gap:3px;margin-top:auto}
+.tmon-q .who .nm{font-family:'Mesmerize',sans-serif;font-weight:300;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.tmon-q .who .bt{font-family:'Myriad Pro',sans-serif;font-size:14px;color:var(--mute)}
+.tmon-nav{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:44px}
+.tmon-btn{width:48px;height:48px;border:1px solid rgba(0,0,0,0.14);border-radius:2px;display:inline-flex;align-items:center;justify-content:center;color:var(--ink);background:none;cursor:pointer;padding:0;line-height:0;transition:border-color .25s,color .25s,opacity .25s}
+.tmon-btn:hover{border-color:var(--navy);color:var(--navy)}
+.tmon-btn:disabled{opacity:.32;cursor:default}
+.tmon-btn:disabled:hover{border-color:rgba(0,0,0,0.14);color:var(--ink)}
+.tmon-btn svg{width:20px;height:20px;display:block}
+@media(max-width:760px){.tmon{padding:72px 0}.tmon-wrap{padding:0 24px}.tmon-q{flex-basis:100%;padding:0}.tmon-view::before{display:none}}
 </style>
 </head>
 <body id="top">
@@ -331,6 +352,31 @@ footer{background:var(--paper);padding:40px 40px 80px;color:var(--mute);font-siz
       <p class="no">3</p>
       <h4>Ongoing Management</h4>
       <p>Your dedicated Yacht Manager oversees day-to-day coordination, service needs, owner updates, and financial reporting, so you can enjoy your yacht without the operational burden.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TESTIMONIALS ============================== -->
+<section class="tmon" id="testimonials">
+  <div class="tmon-wrap">
+    <div class="tmon-head">
+      <h2>What our clients say</h2>
+    </div>
+    <div class="tmon-view">
+      <div class="tmon-track" id="tmonTrack">
+        <figure class="tmon-q"><blockquote>Since JBY took over management, we simply show up and go. Crew, service, and berthing are handled before we even ask.</blockquote><figcaption class="who"><span class="nm">James H.</span><span class="bt">Owns a Riva 88&rsquo; &middot; Newport Harbor</span></figcaption></figure>
+        <figure class="tmon-q"><blockquote>Our yacht has never run better. Scheduled maintenance, warranty, and upgrades are all coordinated by one dedicated team.</blockquote><figcaption class="who"><span class="nm">Margaret &amp; Tom R.</span><span class="bt">Owns a Sirena 68 &middot; San Diego</span></figcaption></figure>
+        <figure class="tmon-q"><blockquote>They treat our boat like their own. Transparent budgets, clear reporting, and someone always a phone call away.</blockquote><figcaption class="who"><span class="nm">David C.</span><span class="bt">Owns a Pershing 7X &middot; Marina del Rey</span></figcaption></figure>
+        <figure class="tmon-q"><blockquote>Effortless ownership is exactly what they promised. We spend our time on the water, not on logistics.</blockquote><figcaption class="who"><span class="nm">Elena V.</span><span class="bt">Owns a Riva 76&rsquo; &middot; Sausalito</span></figcaption></figure>
+        <figure class="tmon-q"><blockquote>From delivery to survey to season prep, every detail is anticipated before we even think of it.</blockquote><figcaption class="who"><span class="nm">Michael T.</span><span class="bt">Owns an Axopar 37 &middot; Seattle</span></figcaption></figure>
+        <figure class="tmon-q"><blockquote>A single point of contact for everything. It has completely changed how we enjoy our yacht.</blockquote><figcaption class="who"><span class="nm">Andrew P.</span><span class="bt">Owns a Wally 48 &middot; Charleston</span></figcaption></figure>
+        <figure class="tmon-q"><blockquote>Discreet, professional, and genuinely knowledgeable. Managing our yacht with them has been a pleasure.</blockquote><figcaption class="who"><span class="nm">Sophia &amp; Daniel K.</span><span class="bt">Owns a Pershing 5X &middot; Marina del Rey</span></figcaption></figure>
+        <figure class="tmon-q"><blockquote>This is our second season under their care. We wouldn&rsquo;t hand our yacht to anyone else.</blockquote><figcaption class="who"><span class="nm">Thomas W.</span><span class="bt">Owns a Riva 68 &middot; Kona</span></figcaption></figure>
+      </div>
+    </div>
+    <div class="tmon-nav">
+      <button class="tmon-btn prev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="tmon-btn next" aria-label="More reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m9 6 6 6-6 6"/></svg></button>
     </div>
   </div>
 </section>
@@ -455,6 +501,18 @@ document.querySelectorAll('.scene-media').forEach(function(m){var img=m.querySel
     var prog=(r.top+r.height/2-vh/2)/vh; /* -0.5..0.5 */
     var y=prog*-60; media.forEach(function(m){m.style.transform='translateY('+y+'px)';});}
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(upd);ticking=true;}},{passive:true});upd();
+})();
+
+/* Testimonials — column slider (arrows scroll left / right) */
+(function(){
+  var track=document.getElementById('tmonTrack');if(!track)return;
+  var prev=document.querySelector('.tmon-btn.prev'),next=document.querySelector('.tmon-btn.next');
+  function step(){var c=track.querySelector('.tmon-q');return c?Math.round(c.getBoundingClientRect().width):320;}
+  function upd(){var max=track.scrollWidth-track.clientWidth-2;if(prev)prev.disabled=track.scrollLeft<=2;if(next)next.disabled=track.scrollLeft>=max;}
+  if(prev)prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+  if(next)next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+  track.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);upd();
 })();
 </script>
 </body>
